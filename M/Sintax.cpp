@@ -1,16 +1,41 @@
 #include <iostream>
+#include "Textos.h"
 #include "Mapa.h"
 
+
+char Turno;
+int fila;
+int columna;
+int Valor;
+
 void RunGame(){
-    char Turno;
-    int fila;
-    int columna;
+
+    Inicio();
+    std::cin>>Valor;
+
+    do{ Logic(Valor); }
+    while(Valor != 2);
+
+}
+
+void Logic(int value){
+    
+    if( value == 1){
+
+        imprimirVector(Mapa);
+        std::cin>>Turno;
+        std::cin>>fila >>columna;
+        ponerFicha(Mapa,Turno,fila,columna);
+        imprimirVector(Mapa);
+
+    }
 
 
-    imprimirVector(Mapa);
+    if(value == 2){
+        EXIT_SUCCESS;
+    }
 
-    std::cin>>Turno;
-    std::cin>>fila >>columna;
-    ponerFicha(Mapa,Turno,fila,columna);
-    imprimirVector(Mapa);
+    else{
+        std::cout<<"Numero equivocado";
+    }
 }
